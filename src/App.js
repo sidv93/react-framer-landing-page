@@ -2,7 +2,8 @@ import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
-import { useGlobalStateContext } from './context/globalContext';
+import { useGlobalStateContext, useGlobalDispatchContext } from './context/globalContext';
+import CustomCursor from './components/CustomCursor';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -14,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
     *, *:before, *:after {
       box-sizing: inherit;
       text-decoration: none;
+      cursor: none;
     }
 
     body {
@@ -43,12 +45,18 @@ const lightTheme = {
 };
 
 function App() {
-  const { currentTheme } = useGlobalStateContext();
+  const { currentTheme, cursorStyles } = useGlobalStateContext();
+  const dispatch = useGlobalDispatchContext();
+  const onCursor = cursorType => {
+    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false;
+    dispatch({type: 'CURSOR_TYPE', cursorType})
+  }
   return (
     <Router>
       <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
-        <Header />
+        <CustomCursor />
+        <Header onCursor={onCursor} />
       </ThemeProvider>
     </Router>
   );
