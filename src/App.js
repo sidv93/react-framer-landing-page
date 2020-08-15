@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import { useGlobalStateContext, useGlobalDispatchContext } from './context/globalContext';
 import CustomCursor from './components/CustomCursor';
+import HomeBanner from './components/homepage/HomeBanner';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -57,6 +58,7 @@ function App() {
         <GlobalStyles />
         <CustomCursor />
         <Header onCursor={onCursor} />
+        <HomeBanner onCursor={onCursor} />
       </ThemeProvider>
     </Router>
   );
