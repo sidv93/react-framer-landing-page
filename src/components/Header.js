@@ -4,7 +4,7 @@ import { Flex, Container } from '../styles/globalstyles';
 import { Link } from 'react-router-dom';
 import { useGlobalStateContext, useGlobalDispatchContext } from '../context/globalContext';
 
-const Header = ({onCursor}) => {
+const Header = ({ onCursor, toggleMenu, setToggleMenu }) => {
     const { currentTheme } = useGlobalStateContext();
     const dispatch = useGlobalDispatchContext();
     const toggleTheme = () => {
@@ -41,13 +41,13 @@ const Header = ({onCursor}) => {
                     >
                         <Link to='/'>FURR</Link>
                         <span
-                        onClick={toggleTheme}
-                        onMouseEnter={() => onCursor('pointer')}
-                        onMouseLeave={onCursor}
+                            onClick={toggleTheme}
+                            onMouseEnter={() => onCursor('pointer')}
+                            onMouseLeave={onCursor}
                         ></span>
                         <Link to='/'>W</Link>
                     </Logo>
-                    <Menu>
+                    <Menu onClick={() => setToggleMenu(!toggleMenu)}>
                         <button>
                             <span></span>
                             <span></span>

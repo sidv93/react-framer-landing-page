@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/Header';
 import { useGlobalStateContext, useGlobalDispatchContext } from './context/globalContext';
 import CustomCursor from './components/CustomCursor';
 import HomeBanner from './components/homepage/HomeBanner';
+import Navigation from './components/Navigation';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -50,14 +51,16 @@ function App() {
   const dispatch = useGlobalDispatchContext();
   const onCursor = cursorType => {
     cursorType = (cursorStyles.includes(cursorType) && cursorType) || false;
-    dispatch({type: 'CURSOR_TYPE', cursorType})
+    dispatch({ type: 'CURSOR_TYPE', cursorType })
   }
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <Router>
       <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
-        <CustomCursor />
-        <Header onCursor={onCursor} />
+        <CustomCursor toggleMenu={toggleMenu} />
+        <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+        <Navigation toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} />
         <HomeBanner onCursor={onCursor} />
       </ThemeProvider>
     </Router>
