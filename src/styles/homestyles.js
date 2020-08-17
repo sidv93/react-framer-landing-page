@@ -168,3 +168,73 @@ export const FeaturedProjects = styled.div`
         }
     }
 `;
+
+// About section
+
+export const HomeAboutSection = styled(motion.section)`
+
+`;
+
+export const About = styled.div`
+    width: 100%;
+
+    h2 {
+        width: 60%;
+        font-size: 2.3rem;
+        margin-left: 124px;
+        color: ${props => props.theme.text};
+    }
+
+    p {
+        max-width: 440px;
+        font-size: 1rem;
+        margin-left: 124px;
+        line-height: 1.6rem;
+        color: ${props => props.theme.text};
+    }
+`;
+
+export const Services = styled.div`
+
+`;
+
+// Accordian
+
+export const AccordianHeader = styled(motion.div)`
+    width: 100%;
+    color: ${props => props.theme.red};
+    height: 32px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 8px 0;
+`;
+
+export const AccordianIcon = styled.div`
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 8px;
+
+    span {
+        width: 16px;
+        height: 4px;
+        background: ${props => props.theme.red};
+        transition: 0.1s ease-in-out;
+    }
+`;
+
+export const AccordianContent = styled(motion.div)`
+    overflow: hidden;
+    padding-left: 40px;
+
+    span {
+        width: 100%;
+        margin: 8px 0;
+        font-size: 0.875rem;
+        color: ${props => props.theme.red};
+        display: block;
+        font-weight: 300;
+    }
+`;

@@ -8,6 +8,7 @@ import HomeBanner from './components/homepage/HomeBanner';
 import Navigation from './components/Navigation';
 import HomeContent from './components/homepage/HomeContent';
 import HomeFeature from './components/homepage/HomeFeature';
+import HomeAbout from './components/homepage/HomeAbout';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -66,6 +67,7 @@ function App() {
         <HomeBanner onCursor={onCursor} />
         <HomeContent />
         <HomeFeature onCursor={onCursor} />
+        <HomeAbout onCursor={onCursor} />
       </ThemeProvider>
     </Router>
   );
