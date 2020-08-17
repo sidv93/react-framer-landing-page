@@ -6,6 +6,8 @@ import { useGlobalStateContext, useGlobalDispatchContext } from './context/globa
 import CustomCursor from './components/CustomCursor';
 import HomeBanner from './components/homepage/HomeBanner';
 import Navigation from './components/Navigation';
+import HomeContent from './components/homepage/HomeContent';
+import HomeFeature from './components/homepage/HomeFeature';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -62,6 +64,8 @@ function App() {
         <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
         <Navigation toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} />
         <HomeBanner onCursor={onCursor} />
+        <HomeContent />
+        <HomeFeature onCursor={onCursor} />
       </ThemeProvider>
     </Router>
   );
