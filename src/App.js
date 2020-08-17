@@ -57,12 +57,17 @@ function App() {
     dispatch({ type: 'CURSOR_TYPE', cursorType })
   }
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [hamburgerPosition, setHamburgerPosition] = useState({
+    x: 0,
+    y: 0
+  })
   return (
     <Router>
       <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
         <CustomCursor toggleMenu={toggleMenu} />
-        <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+        <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} 
+        hamburgerPosition={hamburgerPosition} setHamburgerPosition={setHamburgerPosition} />
         <Navigation toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} />
         <HomeBanner onCursor={onCursor} />
         <HomeContent />
