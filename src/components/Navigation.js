@@ -151,7 +151,7 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                                     ></motion.div>
                                     <div className='video'>
                                         <AnimatePresence exitBeforeEnter initial={false}>
-                                            <video
+                                            <motion.video
                                                 key={revealVideo.key}
                                                 src={require(`../assets/videos/${revealVideo.video}`)}
                                                 autoPlay

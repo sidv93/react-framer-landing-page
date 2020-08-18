@@ -69,7 +69,7 @@ export const HomeFeaturedSection = styled(motion.div)`
     }
 `;
 
-export const FeaturedContent = styled.div`
+export const FeaturedContent = styled(motion.div)`
     height: 400px;
     width: 100%;
     padding: 56px 124px;

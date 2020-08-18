@@ -70,7 +70,9 @@ export const NavList = styled.div`
 
                     svg {
                         width: 100px;
-                        fill: ${props => props.theme.background};
+                        path {
+                            fill: ${props => props.theme.background};
+                        }
                     }
                 }
             }
