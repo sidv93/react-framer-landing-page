@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Container, Flex } from '../styles/globalstyles';
 import { Link } from 'react-router-dom';
 import { Nav, NavHeader, CloseNav, NavList, NavFooter, NavVideos } from '../styles/navigationstyles';
+import { FooterContent, FooterSocial } from '../styles/footerstyles';
+import { Facebook, Instagram, Vimeo } from '../assets/svg/socialIcons';
 
 const navRoutes = [
     {
@@ -121,7 +123,27 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                                         ))}
                                     </ul>
                                 </NavList>
-                                <NavFooter></NavFooter>
+                                <NavFooter>
+                                    <Flex spaceBetween>
+                                        <FooterContent>
+                                            <p>info@furrow.com</p>
+                                        </FooterContent>
+                                        <FooterContent>
+                                            <p>803474794</p>
+                                        </FooterContent>
+                                        <FooterSocial>
+                                            <a href='/' onMouseEnter={() => onCursor('hovered')} onMouseLeave={onCursor}>
+                                                <Instagram />
+                                            </a>
+                                            <a href='/' onMouseEnter={() => onCursor('hovered')} onMouseLeave={onCursor}>
+                                                <Facebook />
+                                            </a>
+                                            <a href='/' onMouseEnter={() => onCursor('hovered')} onMouseLeave={onCursor}>
+                                                <Vimeo />
+                                            </a>
+                                        </FooterSocial>
+                                    </Flex>
+                                </NavFooter>
                                 <NavVideos>
                                     <motion.div
                                         className='reveal'

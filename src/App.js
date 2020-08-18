@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import HomeContent from './components/homepage/HomeContent';
 import HomeFeature from './components/homepage/HomeFeature';
 import HomeAbout from './components/homepage/HomeAbout';
+import Footer from './components/Footer';
 
 const GlobalStyles = createGlobalStyle`
     html {
@@ -37,18 +38,6 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
-const darkTheme = {
-  background: '#000',
-  text: '#fff',
-  red: '#ea291e'
-};
-
-const lightTheme = {
-  background: '#fff',
-  text: '#000',
-  red: '#ea291e'
-};
-
 function App() {
   const { currentTheme, cursorStyles } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
@@ -60,19 +49,35 @@ function App() {
   const [hamburgerPosition, setHamburgerPosition] = useState({
     x: 0,
     y: 0
-  })
+  });
+  const darkTheme = {
+    background: '#000',
+    text: '#fff',
+    red: '#ea291e',
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`
+  };
+
+  const lightTheme = {
+    background: '#fff',
+    text: '#000',
+    red: '#ea291e',
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`
+  };
   return (
     <Router>
       <ThemeProvider theme={currentTheme === 'dark' ? darkTheme : lightTheme}>
         <GlobalStyles />
         <CustomCursor toggleMenu={toggleMenu} />
-        <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} 
-        hamburgerPosition={hamburgerPosition} setHamburgerPosition={setHamburgerPosition} />
+        <Header onCursor={onCursor} toggleMenu={toggleMenu} setToggleMenu={setToggleMenu}
+          hamburgerPosition={hamburgerPosition} setHamburgerPosition={setHamburgerPosition} />
         <Navigation toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} onCursor={onCursor} />
         <HomeBanner onCursor={onCursor} />
         <HomeContent />
         <HomeFeature onCursor={onCursor} />
         <HomeAbout onCursor={onCursor} />
+        <Footer onCursor={onCursor} />
       </ThemeProvider>
     </Router>
   );
